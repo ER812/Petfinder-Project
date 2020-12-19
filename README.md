@@ -20,11 +20,7 @@ Show us a snippet of JSON returned by your API so we know you can access it and 
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
-
-### MVP/PostMVP
-
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
+https://imgur.com/a/OqEwscG - Site is single page. Mobile first. Scales to desktop easily but, background changes from black to gray after height/width threshold reached. 
 
 #### MVP 
 
