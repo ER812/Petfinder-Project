@@ -2,7 +2,7 @@
 General Assembly APIs Project 1
 
 # Project Overview
-Uses the Http.cat API to render a random error message and cat picture on the page at landing. The user can then search for a speficic error code and cat picture.  
+Uses the Http.cat API to render a random error message and cat picture on the page at landing. The user can search for a speficic error code and cat picture.  
 
 ## Project Name
 
@@ -27,17 +27,15 @@ Upload images of your wireframes to an image hosting site or add them to an asse
 The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
 
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
 
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
+- Find and use external api. 
+- Render random image on landing.
+- Allow user to choose error code from dropdown menu.  
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
 
-- Add second API
-- Use local storage to save user favorites
+- Add second API to connect users with adoptable pets. 
+- Add personalized adoption message with specific pet names e.g. "Cody is available for adoption today!" 
 
 ## Project Schedule
 
