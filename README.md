@@ -16,8 +16,16 @@ A simple website that uses the API with Http.cat to communicate error codes usin
 
 API: https://http.cat/
 
-Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
-
+```
+<li class="ThumbnailGrid_thumbnail__177T1">
+	<div class="Thumbnail_container__GR1uU"><a href="/301">
+	<div class="Thumbnail_image__3tvNZ" style="background-image:url(/images/301.jpg)"></div>
+	<div class="Thumbnail_content__2eR9q">
+	<div class="Thumbnail_title__2iqYK">301</div>
+		<p>Moved Permanently</p>
+</div>
+</a></div>
+```
 ## Wireframes
 
 https://imgur.com/a/OqEwscG - Site is single page. Mobile first. Scales to desktop easily but, background changes from black to gray after height/width threshold reached. 
@@ -35,8 +43,6 @@ https://imgur.com/a/OqEwscG - Site is single page. Mobile first. Scales to deskt
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
 You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
 |  Day | Deliverable | Status
@@ -52,6 +58,13 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
 
+| Landing Image | H | 30 min |  |  |
+| Text-display | M | 1.5 hrs | | |
+| Background Colors | H | 1hr |  | |
+| Dropdowns| H | 2 hrs |  |  |
+| Search Bar | M | 30 min |  |  |
+
+
 ## Timeframes
 
 Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day. Students usally put in around 40+ hours into their project 1.
@@ -60,9 +73,12 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| HTML | H | 6 hrs |  |  |
+| CSS | H | 6 hrs | | |
+| API 1 | H | 1hr |  | |
+| API 2| L | 2 hrs |  |  |
+| JS | H | 5 hrs |  |  |
+| Total| | 20 hrs |  |  |
 
 ## Code Snippet
 
