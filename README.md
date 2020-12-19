@@ -2,7 +2,7 @@
 General Assembly APIs Project 1
 
 # Project Overview
-Uses the Http.cat API to render a random error message and cat picture on the page at landing. The user can search for a speficic error code and cat picture.  
+Uses the Http.cat API to render a random error message and cat picture on the page at landing. The user can search for a specific error code and cat picture.  
 
 ## Project Name
 
