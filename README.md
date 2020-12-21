@@ -1,20 +1,22 @@
 # Petfinder Project
+
 General Assembly APIs Project 1
 
 # Project Overview
-Uses the Petfinder.com API to make a webpage, featuring adoptable pets, searchable by breed.   
+
+Uses the Petfinder.com API to make a webpage, featuring adoptable pets, searchable by breed.
 
 ## Project Name
 
-Petfinder Project 
+Petfinder Project
 
 ## Project Description
 
-Using the Petfinder API, takes searches of animal breeds and returns available adoptable pets.   
+Using the Petfinder API, takes searches of animal breeds and returns available adoptable pets.
 
 ## API and Data Sample
 
-API: https://http.cat/
+API: https://www.petfinder.com/animals
 
 ```
 {
@@ -43,59 +45,59 @@ API: https://http.cat/
 
 }
 ```
+
 ## Wireframes
 
-https://imgur.com/a/OqEwscG - Site is single page. Mobile first. Scales to desktop easily but, background changes from black to gray after height/width threshold reached. 
+https://wireframe.cc/Py2cbi - Site is single page. Mobile first. Scales to desktop easily but, background changes from black to gray after height/width threshold reached.
 
-#### MVP 
+#### MVP
 
-- Find and use external api. 
+- Find and use external api.
 - Render random image on landing.
-- Allow user to choose breeds from dropdown menu.  
+- Allow user to choose breeds from dropdown menu.
 
-#### PostMVP  
+#### PostMVP
 
-- Add second search function to match user and pet by location.  
-- Add personalized adoption message with specific pet names e.g. "Cody is available for adoption today!" 
+- Add second search function to match user and pet by location.
+- Add personalized adoption message with specific pet names e.g. "Cody is available for adoption today!"
 
 ## Project Schedule
 
 You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
-|  Day | Deliverable | Status
-|---|---| ---|
-|Dec 17| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|Dec 21| Project Approval | Incomplete
-|Dec 22| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|Dec 23| Pseudocode / actual code | Incomplete
-|Dec 23| MVP | Incomplete
-|Jan 21| Presentations | Incomplete
+| Day    | Deliverable                                        | Status     |
+| ------ | -------------------------------------------------- | ---------- |
+| Dec 17 | Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete |
+| Dec 21 | Project Approval                                   | Incomplete |
+| Dec 22 | Core Application Structure (HTML, CSS, etc.)       | Incomplete |
+| Dec 23 | Pseudocode / actual code                           | Incomplete |
+| Dec 23 | MVP                                                | Incomplete |
+| Jan 21 | Presentations                                      | Incomplete |
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
+Include a full list of features that have been prioritized based on the `Time and Importance` Matrix. Link this image in a similar manner to your wireframes
 
-| Landing Image | H | 1 min |  |  |
-| Text-display | M | 3 hrs | | |
-| Background Colors | H | 1hr |  | |
-| Dropdowns| H | 2 hrs |  |  |
-| Search Bar | M | 3 min |  |  |
-
+| Landing Image | H | 1 min |
+| Text-display | M | 3 hrs |
+| Background Colors | H | 1hr |
+| Dropdowns| H | 2 hrs |
+| Search Bar | M | 3 min |
 
 ## Timeframes
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |
-| HTML | H | 6 hrs |  |  |
-| CSS | H | 6 hrs | | |
-| API 1 | H | 1hr |  | |
-| API 2| L | 2 hrs |  |  |
-| JS | H | 5 hrs |  |  |
-| Total| | 20 hrs |  |  |
+| --------- | :------: | :------------: | :-----------: | :---------: |
+| HTML      |    H     |     6 hrs      |               |             |
+| CSS       |    H     |     6 hrs      |               |             |
+| API 1     |    H     |      1hr       |               |             |
+| API 2     |    L     |     2 hrs      |               |             |
+| JS        |    H     |     5 hrs      |               |             |
+| Total     |          |     20 hrs     |               |             |
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
+Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
 
 ```
 function reverse(string) {
@@ -104,4 +106,5 @@ function reverse(string) {
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes. 
+
+Use this section to document what changes were made and the reasoning behind those changes.
