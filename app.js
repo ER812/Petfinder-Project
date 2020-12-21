@@ -21,11 +21,35 @@ const getAnimals = async () => {
         Authorization: `Bearer ${token}`
     }
   })
-console.log(response.data.animals)
+  console.log(response.data.animals)
+  randomPet(response.data.animals)
+}
+
+
+
+// Random pet id on page load: 
+
+// window.onload = randomPet()
+
+const randomPet = async (animalData) => {
+  console.log(animalData)
+  const randomIndex = Math.floor(Math.random() * animalData.length)
+  const randomPet = animalData[randomIndex]
+  console.log(randomPet)
+  const randomImage = document.createElement("img")
+  if (randomPet.photos.length === 0) {
+    randomImage.setAttribute('src', "./NoImage.jpeg")
+  } else {
+    randomImage.setAttribute('src', randomPet.photos[0].small)
+  }
+document.body.appendChild(randomImage)
+//   randomImage.setAttribute('src', randomPet.photo[0])
+  
 }
 
 getAnimals()
 
+// append this to a div document.querySelector- id or class - make sure images are no bigger than a specific size. 
 
 // // Random adoptable pet on landing: 
 
