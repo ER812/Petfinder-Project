@@ -62,7 +62,29 @@ const randomPet = async (animalData) => {
 
 getAnimals()
 
+const createSelectMenu = () => {
+  let animalOptionArray = ["dog", "cat"]
+  let selectMenuHtml = document.querySelectorAll(".select-menu")
+  console.log(selectMenuHtml[0])
+  let selectMenu = document.createElement("select")
+  for (i = 0; i < animalOptionArray.length; i++) {
+    let option = document.createElement("option")
+    option.value = animalOptionArray[i];
+    option.innerText = animalOptionArray[i];
+    selectMenu.appendChild(option)
+  }
+  selectMenuHtml[0].append(selectMenu)
+}
 
+createSelectMenu()
+// {/* <label for="cars">Choose a car:</label>
+// create
+// <select name="cars" id="cars">
+//   <option value="volvo">Volvo</option>
+//   <option value="saab">Saab</option>
+//   <option value="mercedes">Mercedes</option>
+//   <option value="audi">Audi</option>
+// </select> */}
 
 // append this to a div document.querySelector- id or class - make sure images are no bigger than a specific size. 
 
