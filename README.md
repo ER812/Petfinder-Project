@@ -78,22 +78,18 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matrix. Link this image in a similar manner to your wireframes
 
-| Landing Image | H | 1 min |
-| Text-display | M | 3 hrs |
-| Background Colors | H | 1hr |
-| Dropdowns| H | 2 hrs |
-| Search Bar | M | 3 min |
+https://imgur.com/a/em57BDI
 
 ## Timeframes
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --------- | :------: | :------------: | :-----------: | :---------: |
-| HTML      |    H     |     6 hrs      |               |             |
-| CSS       |    H     |     6 hrs      |               |             |
-| API 1     |    H     |      1hr       |               |             |
-| API 2     |    L     |     2 hrs      |               |             |
-| JS        |    H     |     5 hrs      |               |             |
-| Total     |          |     20 hrs     |               |             |
+| HTML      |    H     |     12 hrs     |               |             |
+| CSS       |    H     |     12 hrs     |               |             |
+| API 1     |    H     |      1 hr      |     2 hr      |             |
+| API 2     |    L     |     4 hrs      |               |             |
+| JS        |    H     |     10 hrs     |               |             |
+| Total     |          |     39 hrs     |               |             |
 
 ## Code Snippet
 
