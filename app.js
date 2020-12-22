@@ -1,5 +1,10 @@
+const randomPicsArrayDogs = ["https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50113590/1/?bust=1608665556&width=300",
+  "https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2167&q=80",
+  "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80",
+  "https://images.unsplash.com/photo-1546491764-67a5b8d5b3ae?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"]
 
-// {"token_type":"Bearer","expires_in":3600,"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4RVFWQzJSWDd6SDZSUWJBQlcxREN3bDkwUklKTTlwWUtoOW4zUzZydW85aUZPZFZJNSIsImp0aSI6IjM3OGU0ZWY1ZDJkZDFkMDkzMjA1NTc4MGY5Njc0YWEzN2IyMmQyZWFiYjY1OTljM2NiMjA2ZjJkODEzNDFhOGRmYmM1MWQzOTdiYWZiYWJkIiwiaWF0IjoxNjA4NTYyNTAzLCJuYmYiOjE2MDg1NjI1MDMsImV4cCI6MTYwODU2NjEwMywic3ViIjoiIiwic2NvcGVzIjpbXX0.Bn3dqNxewbXQEevcyVBkQlK1m7FAF8cggQESCrD67yl9AJMkpALTzZ6aU8KHoU93adUUtnrqcU81RB5r85kQp9s1tUfzYASBhMy7pOONFe_240pA84cHAUbYzDtDRHNa3wcPWUi70iCMuv8VwDaB9wz_nU7gThdxnUr32JjxVk4Ury3Tb4oR2UYa-jNHE9NxArRiH2TRnyk-vv75OGQoq4aJ-W1nQq2GDl4RJHm1RIJjYuUK5YdaXETF_6WGk-M5sfhBuc5joWiGfAYUb5iJr32NZHRiYDhBDKz_jm7NTr5n6l9Ekod_tf1ldIJuWSJKGZEIvJqjg5C5P0pAfefq0A"}
+const randomPicsArrayCats = ["https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50113861/4/?bust=1608667064&width=300",]
 
 // Conecting API to webpage:
 
@@ -37,7 +42,15 @@ const randomPet = async (animalData) => {
   console.log(randomPet)
   const randomImage = document.createElement("img")
   if (randomPet.photos.length === 0) {
-    randomImage.setAttribute('src', "./NoImage.jpeg")
+    let randomArrayPic 
+    if (randomPet.type === "Dog") {
+      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayDogs.length)
+      randomArrayPic = randomPicsArrayDogs[randomIndexPic]
+    } else if (randomPet.type === "Cat") {
+      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayCats.length)
+      randomArrayPic = randomPicsArrayCats[randomIndexPic]
+    }
+    randomImage.setAttribute('src', randomArrayPic)
   } else {
     randomImage.setAttribute('src', randomPet.photos[0].medium)
   }
@@ -115,7 +128,7 @@ const randomPet2 = async (animalDataTwo) => {
   
 }
 
-getAnimalsTwo(randomPet2())
+// getAnimalsTwo(randomPet2())
 
 
 // Left and right arrows for navigation. 
