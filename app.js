@@ -63,7 +63,7 @@ const randomPet = async (animalData) => {
 getAnimals()
 
 const createSelectMenu = () => {
-  let animalOptionArray = ["dog", "cat"]
+  let animalOptionArray = ["Pet", "Dog", "Cat"]
   let selectMenuHtml = document.querySelectorAll(".select-menu")
   console.log(selectMenuHtml[0])
   let selectMenu = document.createElement("select")
@@ -77,6 +77,23 @@ const createSelectMenu = () => {
 }
 
 createSelectMenu()
+
+const createStatesMenu = () => {
+  let statesArray = ["State", "Al", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IL", "ID", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+  let selectStatesMenu = document.querySelectorAll(".states-menu")
+  console.log(selectStatesMenu[0])
+  let statesMenu = document.createElement("select")
+  for (i = 0; i < statesArray.length; i++) {
+    let option = document.createElement("option")
+    option.value = statesArray[i]
+    option.innerText = statesArray[i]
+    statesMenu.appendChild(option)
+  }
+  selectStatesMenu[0].append(statesMenu)
+}
+
+createStatesMenu()
+
 // {/* <label for="cars">Choose a car:</label>
 // create
 // <select name="cars" id="cars">
@@ -86,27 +103,13 @@ createSelectMenu()
 //   <option value="audi">Audi</option>
 // </select> */}
 
-// append this to a div document.querySelector- id or class - make sure images are no bigger than a specific size. 
+// append this to a div document.querySelector- id or class.
 
-// // Choose dog or cat: 
-
-
-// // Search for Breed:
-
-//   // Get value from form
-
-// function getValue(e) => {
-//   e.preventDefault()
-//   const optionValue = document.querySelector('').value
-//   getBreed(optionValue)
-// }
-
-//   // Event handler for the form
 
 // const form = document.querySelector('form')
 // form.addEventListener('submit', getValue)
 
-// List horizontal bar of five animals. 
+// List horizontal bar of five pets. 
 
 const getTokenTwo = async () => {
   const responseTwo = await axios.post("https://api.petfinder.com/v2/oauth2/token",
@@ -149,6 +152,8 @@ const randomPet2 = async (animalDataTwo) => {
 
   
 }
+
+getAnimalsTwo()
 
 // getAnimalsTwo(randomPet2())
 
