@@ -1,5 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap");
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: #000000;
+  }
+}
+
+h1 {
+  font-family: Andika;
+  font-family: Arial;
+  text-decoration-color: rgb(173, 216, 230);
+  text-align: center;
+}
+
+body {
+  background-color: rgb(105, 105, 105);
+  font-family: Andika;
+  font-family: Arial;
+}
+
 img {
   height: 400px;
   width: 300px;
+  border-radius: 65px;
+  display: block;
+  margin: 0 auto;
+  padding: 50px;
 }
 
+.banner {
+  text-align: center;
+}
+
+.menu {
+  display: inline-block;
+}

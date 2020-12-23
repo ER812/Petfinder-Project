@@ -111,49 +111,49 @@ createStatesMenu()
 
 // List horizontal bar of five pets. 
 
-const getTokenTwo = async () => {
-  const responseTwo = await axios.post("https://api.petfinder.com/v2/oauth2/token",
-    {
-      client_id: 'yAC018OvAyikVLKUG5NCmgpEDaERQXmK0B4T1QOGyO93FsTPFr',
-      client_secret: 'paZRb1lOhSXBp2gY97UHWOtJwOpISekFzsTbiTb7',
-      grant_type: "client_credentials"
-    })
-  return responseTwo.data.access_token 
-}
+// const getTokenTwo = async () => {
+//   const responseTwo = await axios.post("https://api.petfinder.com/v2/oauth2/token",
+//     {
+//       client_id: 'yAC018OvAyikVLKUG5NCmgpEDaERQXmK0B4T1QOGyO93FsTPFr',
+//       client_secret: 'paZRb1lOhSXBp2gY97UHWOtJwOpISekFzsTbiTb7',
+//       grant_type: "client_credentials"
+//     })
+//   return responseTwo.data.access_token 
+// }
 
-const getAnimalsTwo = async () => {
-  const tokenTwo = await getTokenTwo()
-  const responseTwo = await axios.get("https://api.petfinder.com/v2/animals",
-    {
-      headers: {
-        Authorization: `Bearer ${tokenTwo}`
-      }
-    })
-  console.log(responseTwo.data.animals)
-  randomPet2(responseTwo.data.animals)
-}
+// const getAnimalsTwo = async () => {
+//   const tokenTwo = await getTokenTwo()
+//   const responseTwo = await axios.get("https://api.petfinder.com/v2/animals",
+//     {
+//       headers: {
+//         Authorization: `Bearer ${tokenTwo}`
+//       }
+//     })
+//   console.log(responseTwo.data.animals)
+//   randomPet2(responseTwo.data.animals)
+// }
 
-// const callOne = callOne
-const randomPet2 = async (animalDataTwo) => {
-    console.log(randomPet2)
-  // let animalTwoLength = animalDataTwo.length
-  const randomIndexTwo = Math.floor(Math.random() * animalDataTwo.length)
-  const randomPetTwo = animalDataTwo[randomIndexTwo]
-  console.log(randomPetTwo)
-  const randomImageTwo = document.createElement("img")
-  if (randomPetTwo.photos[0].length === null) {
-    console.log("is this working?")
-    randomImageTwo.setAttribute('src', "./imagenotfound2.png")
-  } else {
-    randomImageTwo.setAttribute('src', randomPetTwo.photos[0].small)
-  }
-  document.body.appendChild(randomImageTwo)
+// // const callOne = callOne
+// const randomPet2 = async (animalDataTwo) => {
+//     console.log(randomPet2)
+//   // let animalTwoLength = animalDataTwo.length
+//   const randomIndexTwo = Math.floor(Math.random() * animalDataTwo.length)
+//   const randomPetTwo = animalDataTwo[randomIndexTwo]
+//   console.log(randomPetTwo)
+//   const randomImageTwo = document.createElement("img")
+//   if (randomPetTwo.photos[0].length === null) {
+//     console.log("is this working?")
+//     randomImageTwo.setAttribute('src', "./imagenotfound2.png")
+//   } else {
+//     randomImageTwo.setAttribute('src', randomPetTwo.photos[0].small)
+//   }
+//   document.body.appendChild(randomImageTwo)
   
 
   
-}
+// }
 
-getAnimalsTwo()
+// getAnimalsTwo()
 
 // getAnimalsTwo(randomPet2())
 
