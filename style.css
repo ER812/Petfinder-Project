@@ -1,22 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
 @media only screen and (max-width: 600px) {
   body {
-    background-color: #000000;
+    background-color: rgb(105, 105, 105);
   }
 }
 
 h1 {
-  font-family: Andika;
-  font-family: Arial;
-  text-decoration-color: rgb(173, 216, 230);
+  font-family: "Permanent Marker", Arial;
+  color: rgba(0, 0, 0, 0.626);
   text-align: center;
 }
 
 body {
-  background-color: rgb(105, 105, 105);
-  font-family: Andika;
-  font-family: Arial;
+  font-family: "Permanent Marker", Arial;
+  color: rgba(0, 0, 0, 0.626);
+  background-color: rgb(173, 216, 230);
 }
 
 img {
@@ -34,4 +34,18 @@ img {
 
 .menu {
   display: inline-block;
+  /* [Code below is from: moderncss.dev] */
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+.info {
+  text-align: center;
 }

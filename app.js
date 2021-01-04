@@ -1,3 +1,4 @@
+// Placeholder images for null photo values: 
 const randomPicsArrayDogs = ["https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50113590/1/?bust=1608665556&width=300",
   "https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2167&q=80",
   "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80",
@@ -6,8 +7,19 @@ const randomPicsArrayDogs = ["https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/5
 
 const randomPicsArrayCats = ["https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/50113861/4/?bust=1608667064&width=300",]
 
-// Conecting API to webpage:
+const randomPicsArrayRabbits = ["https://images.unsplash.com/photo-1518796745738-41048802f99a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80", "https://images.unsplash.com/photo-1591382386627-349b692688ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2848&q=80"]
 
+const randomPicsArraySmalls = ["https://images.unsplash.com/photo-1452721226468-f95fb66ebf83?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2900&q=80", "https://images.unsplash.com/photo-1592159371936-61a70cbeb5f7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"]
+
+const randomPicsArrayHorses = ["https://images.unsplash.com/photo-1534773728080-33d31da27ae5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3034&q=80"]
+
+const randomPicsArrayBirds = ["https://images.unsplash.com/photo-1563278689-3519903a3e97?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3067&q=80"]
+
+const randomPicsArrayScales = ["https://images.unsplash.com/photo-1575551808321-fca0cf0b051a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80"]
+
+const randomPicsArrayBarnyard = ["https://images.unsplash.com/photo-1567201080580-bfcc97dae346?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80"]
+
+// Conecting API to webpage:
 const getToken = async () => {
   const response = await axios.post("https://api.petfinder.com/v2/oauth2/token",
     {
@@ -26,20 +38,14 @@ const getAnimals = async () => {
         Authorization: `Bearer ${token}`
     }
   })
-  console.log(response.data.animals)
   randomPet(response.data.animals)
 }
 
-
-
 // Random pet id on page load: 
-
-
 const randomPet = async (animalData) => {
   console.log(animalData)
   const randomIndex = Math.floor(Math.random() * animalData.length)
   const randomPet = animalData[randomIndex]
-  console.log(randomPet)
   const randomImage = document.createElement("img")
   if (randomPet.photos.length === 0) {
     let randomArrayPic 
@@ -49,28 +55,59 @@ const randomPet = async (animalData) => {
     } else if (randomPet.type === "Cat") {
       const randomIndexPic = Math.floor(Math.random() * randomPicsArrayCats.length)
       randomArrayPic = randomPicsArrayCats[randomIndexPic]
+    } else if (randomPet.type === "Rabbit") {
+      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayRabbits.length)
+      randomArrayPic = randomPicsArrayRabbits[randomIndexPic]
+    } else if (randomPet.type === "Small & Furry") {
+      const randomIndexPic = Math.floor(Math.random() * randomPicsArraySmalls.length)
+      randomArrayPic = randomPicsArraySmalls[randomIndexPic]
+    } else if (randomPet.type === "Horse") {
+      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayHorses.length)
+      randomArrayPic = randomPicsArrayHorses[randomIndexPic]
+    } else if (randomPet.type === "Bird") {
+      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayBirds.length)
+      randomArrayPic = randomPicsArrayBirds[randomIndexPic]
+    } else if (randomPet.type === "Scales,Fins & Other") {
+      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayScales.length)
+      randomArrayPic = randomPicsArrayScales[randomIndexPic]
+    } else if (randomPet.type === "Barnyard") {
+      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayBarnyard.length)
+      randomArrayPic = randomPicsArrayBarnyard[randomIndexPic]
     }
     randomImage.setAttribute('src', randomArrayPic)
   } else {
     randomImage.setAttribute('src', randomPet.photos[0].medium)
   }
   document.body.appendChild(randomImage)
-  
 
-  
 }
 
 getAnimals()
 
-const createSelectMenu = () => {
-  let animalOptionArray = ["Pet", "Dog", "Cat"]
+const createSelectMenu = async () => {
+  const token = await getToken()
+  const animalOptionArray = await axios.get("https://api.petfinder.com/v2/types",
+    {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+  )
+  
+  let data = animalOptionArray.data.types
   let selectMenuHtml = document.querySelectorAll(".select-menu")
   console.log(selectMenuHtml[0])
   let selectMenu = document.createElement("select")
-  for (i = 0; i < animalOptionArray.length; i++) {
+  selectMenu.addEventListener("change", () => {
+    console.log(selectMenu.value)
+    getAnimalTypes(selectMenu.value)
+  }) 
+
+  for (i = 0; i < data.length; i++) {
     let option = document.createElement("option")
-    option.value = animalOptionArray[i];
-    option.innerText = animalOptionArray[i];
+  
+    option.value = data[i].name;
+    option.innerText = data[i].name;
     selectMenu.appendChild(option)
   }
   selectMenuHtml[0].append(selectMenu)
@@ -78,88 +115,19 @@ const createSelectMenu = () => {
 
 createSelectMenu()
 
-const createStatesMenu = () => {
-  let statesArray = ["State", "Al", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IL", "ID", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
-  let selectStatesMenu = document.querySelectorAll(".states-menu")
-  console.log(selectStatesMenu[0])
-  let statesMenu = document.createElement("select")
-  for (i = 0; i < statesArray.length; i++) {
-    let option = document.createElement("option")
-    option.value = statesArray[i]
-    option.innerText = statesArray[i]
-    statesMenu.appendChild(option)
-  }
-  selectStatesMenu[0].append(statesMenu)
+
+const getAnimalTypes = async (type) => {
+  console.log(type)
+  const token = await getToken()
+  const speciesChoice = await axios.get(`https://api.petfinder.com/v2/animals?type=${type}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+  )
+  console.log(speciesChoice)
 }
-
-createStatesMenu()
-
-// {/* <label for="cars">Choose a car:</label>
-// create
-// <select name="cars" id="cars">
-//   <option value="volvo">Volvo</option>
-//   <option value="saab">Saab</option>
-//   <option value="mercedes">Mercedes</option>
-//   <option value="audi">Audi</option>
-// </select> */}
-
-// append this to a div document.querySelector- id or class.
-
-
-// const form = document.querySelector('form')
-// form.addEventListener('submit', getValue)
-
-// List horizontal bar of five pets. 
-
-// const getTokenTwo = async () => {
-//   const responseTwo = await axios.post("https://api.petfinder.com/v2/oauth2/token",
-//     {
-//       client_id: 'yAC018OvAyikVLKUG5NCmgpEDaERQXmK0B4T1QOGyO93FsTPFr',
-//       client_secret: 'paZRb1lOhSXBp2gY97UHWOtJwOpISekFzsTbiTb7',
-//       grant_type: "client_credentials"
-//     })
-//   return responseTwo.data.access_token 
-// }
-
-// const getAnimalsTwo = async () => {
-//   const tokenTwo = await getTokenTwo()
-//   const responseTwo = await axios.get("https://api.petfinder.com/v2/animals",
-//     {
-//       headers: {
-//         Authorization: `Bearer ${tokenTwo}`
-//       }
-//     })
-//   console.log(responseTwo.data.animals)
-//   randomPet2(responseTwo.data.animals)
-// }
-
-// // const callOne = callOne
-// const randomPet2 = async (animalDataTwo) => {
-//     console.log(randomPet2)
-//   // let animalTwoLength = animalDataTwo.length
-//   const randomIndexTwo = Math.floor(Math.random() * animalDataTwo.length)
-//   const randomPetTwo = animalDataTwo[randomIndexTwo]
-//   console.log(randomPetTwo)
-//   const randomImageTwo = document.createElement("img")
-//   if (randomPetTwo.photos[0].length === null) {
-//     console.log("is this working?")
-//     randomImageTwo.setAttribute('src', "./imagenotfound2.png")
-//   } else {
-//     randomImageTwo.setAttribute('src', randomPetTwo.photos[0].small)
-//   }
-//   document.body.appendChild(randomImageTwo)
-  
-
-  
-// }
-
-// getAnimalsTwo()
-
-// getAnimalsTwo(randomPet2())
-
-
-// Left and right arrows for navigation. 
-
 
 
 
