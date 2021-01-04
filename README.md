@@ -48,7 +48,7 @@ API: https://www.petfinder.com/animals
 
 ## Wireframes
 
-https://wireframe.cc/Py2cbi - Site is single page. Mobile first. Scales to desktop easily but, background changes from black to gray after height/width threshold reached.
+https://imgur.com/a/20Xs6pF - Site is single page. Mobile first. Scales to desktop easily but, background changes from black to gray after height/width threshold reached.
 
 #### MVP
 
