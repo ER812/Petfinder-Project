@@ -129,6 +129,8 @@ const getAnimalTypes = async (type) => {
   console.log(speciesChoice)
 }
 
+const changeString = "change"
+
 
 
 
