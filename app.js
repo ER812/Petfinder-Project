@@ -19,7 +19,7 @@ const randomPicsArrayScales = ["https://images.unsplash.com/photo-1575551808321-
 
 const randomPicsArrayBarnyard = ["https://images.unsplash.com/photo-1567201080580-bfcc97dae346?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80"]
 
-// Conecting API to webpage:
+// GET TOKEN
 const getToken = async () => {
   const response = await axios.post("https://api.petfinder.com/v2/oauth2/token",
     {
@@ -30,60 +30,7 @@ const getToken = async () => {
   return response.data.access_token 
 }
 
-const getAnimals = async () => {
-  const token = await getToken()
-  const response = await axios.get("https://api.petfinder.com/v2/animals",
-    {
-      headers: {
-        Authorization: `Bearer ${token}`
-    }
-  })
-  randomPet(response.data.animals)
-}
-
-// Random pet id on page load: 
-const randomPet = async (animalData) => {
-  console.log(animalData)
-  const randomIndex = Math.floor(Math.random() * animalData.length)
-  const randomPet = animalData[randomIndex]
-  const randomImage = document.createElement("img")
-  if (randomPet.photos.length === 0) {
-    let randomArrayPic 
-    if (randomPet.type === "Dog") {
-      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayDogs.length)
-      randomArrayPic = randomPicsArrayDogs[randomIndexPic]
-    } else if (randomPet.type === "Cat") {
-      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayCats.length)
-      randomArrayPic = randomPicsArrayCats[randomIndexPic]
-    } else if (randomPet.type === "Rabbit") {
-      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayRabbits.length)
-      randomArrayPic = randomPicsArrayRabbits[randomIndexPic]
-    } else if (randomPet.type === "Small & Furry") {
-      const randomIndexPic = Math.floor(Math.random() * randomPicsArraySmalls.length)
-      randomArrayPic = randomPicsArraySmalls[randomIndexPic]
-    } else if (randomPet.type === "Horse") {
-      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayHorses.length)
-      randomArrayPic = randomPicsArrayHorses[randomIndexPic]
-    } else if (randomPet.type === "Bird") {
-      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayBirds.length)
-      randomArrayPic = randomPicsArrayBirds[randomIndexPic]
-    } else if (randomPet.type === "Scales,Fins & Other") {
-      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayScales.length)
-      randomArrayPic = randomPicsArrayScales[randomIndexPic]
-    } else if (randomPet.type === "Barnyard") {
-      const randomIndexPic = Math.floor(Math.random() * randomPicsArrayBarnyard.length)
-      randomArrayPic = randomPicsArrayBarnyard[randomIndexPic]
-    }
-    randomImage.setAttribute('src', randomArrayPic)
-  } else {
-    randomImage.setAttribute('src', randomPet.photos[0].medium)
-  }
-  document.body.appendChild(randomImage)
-
-}
-
-getAnimals()
-
+// CREATE select menu from types endpoint. This function creates the select menu that users select. Occurs on page load. 
 const createSelectMenu = async () => {
   const token = await getToken()
   const animalOptionArray = await axios.get("https://api.petfinder.com/v2/types",
@@ -93,31 +40,34 @@ const createSelectMenu = async () => {
       }
     }
   )
-  
+
   let data = animalOptionArray.data.types
   let selectMenuHtml = document.querySelectorAll(".select-menu")
-  console.log(selectMenuHtml[0])
   let selectMenu = document.createElement("select")
-  selectMenu.addEventListener("change", () => {
-    console.log(selectMenu.value)
-    getAnimalTypes(selectMenu.value)
-  }) 
+  selectMenuHtml[0].append(selectMenu) 
+
+  let defaultOption = document.createElement("option")
+  defaultOption.value = "none"
+  defaultOption.innerText = "Choose Rescue Animal"
+  selectMenu.appendChild(defaultOption)
 
   for (i = 0; i < data.length; i++) {
     let option = document.createElement("option")
-  
     option.value = data[i].name;
     option.innerText = data[i].name;
     selectMenu.appendChild(option)
   }
-  selectMenuHtml[0].append(selectMenu)
+ 
+  selectMenu.addEventListener("change", () => {
+    getAnimalsByType(selectMenu.value)
+
+  }) 
 }
 
 createSelectMenu()
 
 
-const getAnimalTypes = async (type) => {
-  console.log(type)
+const getAnimalsByType = async (type) => {
   const token = await getToken()
   const speciesChoice = await axios.get(`https://api.petfinder.com/v2/animals?type=${type}`,
     {
@@ -126,10 +76,117 @@ const getAnimalTypes = async (type) => {
       }
     }
   )
-  console.log(speciesChoice)
+  let data = speciesChoice.data.animals
+  await renderAnimals(data)
+
 }
 
-const changeString = "change"
+const renderAnimals = (data) => {
+  let renderPets = document.querySelector(".render-pets")
+  renderPets.innerHTML = ""
+  for (i = 0; i < data.length; i++) {
+    let petInfo = document.createElement('div')
+    petInfo.className = "pet-info"
+
+    let petName = document.createElement('p')
+    petName.innerText = data[i].name
+    petInfo.appendChild(petName)
+
+    let petAge = document.createElement('p')
+    petAge.innerText = data[i].age
+    petInfo.appendChild(petAge)
+
+    if (data[i].photos.length !== 0) { 
+      let petImage = document.createElement('img')
+      petImage.src = data[i].photos[0].small
+      petInfo.appendChild(petImage)
+
+      petInfo.addEventListener("click", () => {
+        // getSingleAnimal(data[i].id)
+console.log(data[i])
+      })
+
+    }
+    renderPets.appendChild(petInfo)
+  }
+}
+
+
+const getSingleAnimal = async (id) => {
+  const token = await getToken()
+  const response = await axios.get(`https://api.petfinder.com/v2/animals/${id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`
+    }
+  }) 
+renderSingleAnimal(response.data.animal)
+}
+
+const renderSingleAnimal = (animalObject) => {
+  let renderPets = document.querySelectorAll(".render-pets")
+  renderPets.innerHTML = " "
+  let name = document.createElement('p')
+  name.innerText = animalObject.name
+}
+
+
+// const getAnimals = async () => {
+//   const token = await getToken()
+//   const response = await axios.get("https://api.petfinder.com/v2/animals",
+//     {
+//       headers: {
+//         Authorization: `Bearer ${token}`
+//     }
+//   })
+//   randomPet(response.data.animals)
+// }
+
+// // Random pet id on page load: 
+// const randomPet = async (animalData) => {
+//   console.log(animalData)
+//   const randomIndex = Math.floor(Math.random() * animalData.length)
+//   const randomPet = animalData[randomIndex]
+//   const randomImage = document.createElement("img")
+//   if (randomPet.photos.length === 0) {
+//     let randomArrayPic 
+//     if (randomPet.type === "Dog") {
+//       const randomIndexPic = Math.floor(Math.random() * randomPicsArrayDogs.length)
+//       randomArrayPic = randomPicsArrayDogs[randomIndexPic]
+//     } else if (randomPet.type === "Cat") {
+//       const randomIndexPic = Math.floor(Math.random() * randomPicsArrayCats.length)
+//       randomArrayPic = randomPicsArrayCats[randomIndexPic]
+//     } else if (randomPet.type === "Rabbit") {
+//       const randomIndexPic = Math.floor(Math.random() * randomPicsArrayRabbits.length)
+//       randomArrayPic = randomPicsArrayRabbits[randomIndexPic]
+//     } else if (randomPet.type === "Small & Furry") {
+//       const randomIndexPic = Math.floor(Math.random() * randomPicsArraySmalls.length)
+//       randomArrayPic = randomPicsArraySmalls[randomIndexPic]
+//     } else if (randomPet.type === "Horse") {
+//       const randomIndexPic = Math.floor(Math.random() * randomPicsArrayHorses.length)
+//       randomArrayPic = randomPicsArrayHorses[randomIndexPic]
+//     } else if (randomPet.type === "Bird") {
+//       const randomIndexPic = Math.floor(Math.random() * randomPicsArrayBirds.length)
+//       randomArrayPic = randomPicsArrayBirds[randomIndexPic]
+//     } else if (randomPet.type === "Scales,Fins & Other") {
+//       const randomIndexPic = Math.floor(Math.random() * randomPicsArrayScales.length)
+//       randomArrayPic = randomPicsArrayScales[randomIndexPic]
+//     } else if (randomPet.type === "Barnyard") {
+//       const randomIndexPic = Math.floor(Math.random() * randomPicsArrayBarnyard.length)
+//       randomArrayPic = randomPicsArrayBarnyard[randomIndexPic]
+//     }
+//     randomImage.setAttribute('src', randomArrayPic)
+//   } else {
+//     randomImage.setAttribute('src', randomPet.photos[0].medium)
+//   }
+//   document.body.appendChild(randomImage)
+
+// }
+
+// getAnimals()
+
+
+
 
 
 
