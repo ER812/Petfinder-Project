@@ -76,31 +76,36 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix. Link this image in a similar manner to your wireframes
-
 https://imgur.com/a/em57BDI
 
 ## Timeframes
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --------- | :------: | :------------: | :-----------: | :---------: |
-| HTML      |    H     |     12 hrs     |               |             |
-| CSS       |    H     |     12 hrs     |               |             |
-| API 1     |    H     |      1 hr      |     2 hr      |             |
-| API 2     |    L     |     4 hrs      |               |             |
-| JS        |    H     |     10 hrs     |               |             |
-| Total     |          |     39 hrs     |               |             |
+| HTML      |    H     |     12 hrs     |     8 hrs     |    -4 hr    |
+| CSS       |    H     |     12 hrs     |     3 hrs     |   -9 hrs    |
+| API 1     |    H     |      1 hr      |     2 hr      |    +1 hr    |
+| API 2     |    L     |     4 hrs      |     3 hrs     |    -1 hr    |
+| JS        |    H     |     10 hrs     |    20 hrs     |   +10 hrs   |
+| Total     |          |     39 hrs     |    35 hrs     |   -4 hrs    |
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
-
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
+f (
+data[i].name !== "Scales, Fins & Other" &&
+data[i].name !== "Small & Furry"
+) {
+option.value = data[i].name;
+option.innerText = data[i].name;
+selectMenu.appendChild(option);
 }
+}
+This is a common developer fix to hide dead paths. I chose it because I struggled understanding a lot of the necessary code in this project but, this was clear and I understood it well.
+
 ```
 
 ## Change Log
 
-Use this section to document what changes were made and the reasoning behind those changes.
+- Site now offers a list of adoptable animals rather than just one random animal. More closely resembles the pattern of data display on a real adoption website.
+- Second API occurs after an onClick and loads a new page instead of being integrated on a single page. Easier for the user and simpler to code.
+```
