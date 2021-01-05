@@ -1,22 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: rgb(105, 105, 105);
-  }
-}
-
 h1 {
   font-family: "Permanent Marker", Arial;
-  color: rgba(0, 0, 0, 0.626);
+  color: #0d0628;
   text-align: center;
 }
 
 body {
   font-family: "Permanent Marker", Arial;
-  color: rgba(0, 0, 0, 0.626);
-  background-color: rgb(173, 216, 230);
+  color: #0d0628;
+  background-color: #da627d;
 }
 
 img {
@@ -48,4 +42,29 @@ img {
 
 .info {
   text-align: center;
+}
+
+.pet-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #9a348e;
+  margin: 3% auto;
+  width: 60%;
+}
+
+.pet-info p:nth-child(1) {
+  font-size: 40px;
+}
+
+.render-pets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: #fca17d;
+  }
 }
